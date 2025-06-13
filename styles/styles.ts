@@ -1,0 +1,102 @@
+import { StyleSheet, Dimensions } from 'react-native';
+
+const { width } = Dimensions.get('window');
+
+const profileStyles = StyleSheet.create({
+  avatarWrapper: {
+    alignItems: 'center',
+    marginTop: 40,
+    zIndex: 3,
+  },
+  avatar: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    borderWidth: 4,
+    borderColor: '#fff',
+    backgroundColor: '#eee',
+  },
+  avatarCameraBtn: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    backgroundColor: '#1976d2',
+    borderRadius: 16,
+    padding: 6,
+    borderWidth: 2,
+    borderColor: '#fff',
+  },
+  name: { fontWeight: 'bold', fontSize: 22, color: '#fff', marginTop: 12 },
+  username: { color: '#ccc', marginBottom: 10 },
+  postsContainer: {
+    flex: 1,
+    width: '100%',
+    marginTop: 24,
+    backgroundColor: '#fff',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    paddingTop: 16,
+  },
+  sectionTitle: { fontWeight: 'bold', fontSize: 16, marginBottom: 10, marginLeft: 16 },
+  postCard: { width: '92%', alignSelf: 'center', backgroundColor: '#fafafa', borderRadius: 8, padding: 12, marginBottom: 10 },
+  mindInput: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 8,
+    padding: 10,
+    marginVertical: 10,
+    fontSize: 16,
+    backgroundColor: '#fff',
+  },
+  headerRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 12,
+    backgroundColor: 'lightblue',
+    padding: 10,
+    borderRadius: 10,
+  },
+  menuOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0,0,0,0.1)', 
+    zIndex: 100,
+  },
+  menuModal: {
+    position: 'absolute',
+    top: 55, 
+    right: 16, 
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 18,
+    minWidth: 160,
+    elevation: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+  },
+  menuItem: {
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
+    backgroundColor: '#fff',
+  },
+  burgerBtn: {
+    padding: 8,
+    borderRadius: 20,
+    backgroundColor: '#f2f2f2',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 8,
+  },
+
+});
+
+export default profileStyles;
