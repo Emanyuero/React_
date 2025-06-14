@@ -1,7 +1,7 @@
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export const API_URL = 'https://backendreact-production-7a01.up.railway.app/api';
+export const API_URL = 'https://backendreact-production.up.railway.app/api';
 
 
 export const fetchPosts = async (page = 1) => {
