@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FlatList, View, Text, TouchableOpacity, ActivityIndicator, Alert, Modal, Image, TextInput, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Icon from 'react-native-vector-icons/Feather';
+import { Feather as Icon } from '@expo/vector-icons';
 import PostItem from '../components/PostItem';
 import CommentsModal from '../components/CommentsModal';
 import CreatePostModal from '../components/CreatePostModal';

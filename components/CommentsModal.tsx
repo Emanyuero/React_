@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Modal, View, Text, TextInput, TouchableOpacity, FlatList } from 'react-native';
 import sharedStyles from '../styles/sharedStyles';
 import { Comment, Post } from '../types';
+import { Feather } from '@expo/vector-icons';
 
 type CommentsModalProps = {
   visible: boolean;
@@ -89,23 +90,40 @@ const CommentsModal: React.FC<CommentsModalProps> = ({ visible, onClose, post, u
                     <TouchableOpacity
                       onPress={async () => {
                         await handleEditComment(item.id, editContent);
-                        // Do NOT call setEditingCommentId(null) here, it's already handled in handleEditComment
                       }}
                       style={{
-                        backgroundColor: '#1976d2',
+                        backgroundColor: '#8f5cff',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        justifyContent: 'center',
                         paddingVertical: 10,
                         paddingHorizontal: 18,
-                        borderRadius: 8,
+                        borderRadius: 22,
                         marginBottom: 4,
+                        marginTop: 2,
+                        shadowColor: '#8f5cff',
+                        shadowOpacity: 0.10,
+                        shadowRadius: 6,
+                        elevation: 2,
                       }}
                     >
+                      <Feather name="check" size={17} color="#fff" style={{ marginRight: 6 }} />
                       <Text style={{ color: '#fff', fontWeight: 'bold', fontSize: 15 }}>Save</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                       onPress={() => setEditingCommentId(null)}
-                      style={{ marginBottom: 4 }}
+                      style={{
+                        borderColor: '#8f5cff',
+                        borderWidth: 1,
+                        borderRadius: 18,
+                        paddingVertical: 6,
+                        paddingHorizontal: 16,
+                        alignSelf: 'flex-start',
+                        marginBottom: 4,
+                        marginTop: 2,
+                      }}
                     >
-                      <Text style={{ color: '#888', fontSize: 15 }}>Cancel</Text>
+                      <Text style={{ color: '#8f5cff', fontSize: 15, fontWeight: 'bold' }}>Cancel</Text>
                     </TouchableOpacity>
                   </>
                 ) : (
@@ -157,12 +175,20 @@ const CommentsModal: React.FC<CommentsModalProps> = ({ visible, onClose, post, u
             <TouchableOpacity
               onPress={handleAddComment}
               style={{
-                backgroundColor: '#1976d2',
+                backgroundColor: '#8f5cff',
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
                 paddingVertical: 10,
                 paddingHorizontal: 18,
-                borderRadius: 8,
+                borderRadius: 22,
+                shadowColor: '#8f5cff',
+                shadowOpacity: 0.10,
+                shadowRadius: 6,
+                elevation: 2,
               }}
             >
+              <Feather name="send" size={17} color="#fff" style={{ marginRight: 6 }} />
               <Text style={{ color: '#fff', fontWeight: 'bold', fontSize: 15 }}>Post</Text>
             </TouchableOpacity>
           </View>
@@ -170,7 +196,7 @@ const CommentsModal: React.FC<CommentsModalProps> = ({ visible, onClose, post, u
             onPress={onClose}
             style={{ marginTop: 16, alignSelf: 'flex-end', padding: 6 }}
           >
-            <Text style={{ color: '#888', fontSize: 15 }}>Close</Text>
+            <Text style={{ color: '#8f5cff', fontSize: 15, fontWeight: 'bold', textDecorationLine: 'underline' }}>Close</Text>
           </TouchableOpacity>
         </View>
       </View>

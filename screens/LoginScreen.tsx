@@ -8,6 +8,7 @@ import sharedStyles from '../styles/sharedStyles';
 import { useUser } from '../contexts/UserContext';
 import { API_URL } from '../api/postApi';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Feather } from '@expo/vector-icons'; // <-- Add this import
 
 const LoginScreen = ({ navigation }: any) => {
   const { setUser } = useUser();
@@ -75,21 +76,24 @@ const LoginScreen = ({ navigation }: any) => {
         <AppButton
           title={loading ? 'Logging in...' : 'Login'}
           onPress={handleLogin}
-          style={styles.loginBtn}
-          textStyle={styles.loginBtnText}
+          style={styles.socialBtn}
+          textStyle={styles.socialBtnText}
           disabled={loading}
+          iconLeft={<Feather name="log-in" size={20} color="#fff" />}
         />
         <AppButton
           title="Sign Up"
           onPress={() => navigation.navigate('Signup')}
-          style={styles.signupBtn}
-          textStyle={styles.signupBtnText}
+          style={[styles.socialBtn, styles.socialBtnOutline]}
+          textStyle={[styles.socialBtnText, styles.socialBtnOutlineText]}
+          iconLeft={<Feather name="user-plus" size={20} color="#8f5cff" />}
         />
         <AppButton
           title="Forgot Password?"
           onPress={() => navigation.navigate('ForgotPassword')}
           style={styles.forgotBtn}
           textStyle={styles.forgotBtnText}
+          iconLeft={<Feather name="unlock" size={18} color="#3bb2b8" />}
         />
       </View>
     </LinearGradient>
@@ -141,46 +145,39 @@ const styles = StyleSheet.create({
     elevation: 2,
     width: 260,
   },
-  loginBtn: {
+  socialBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
     backgroundColor: '#8f5cff',
     width: 220,
     marginBottom: 16,
-    borderRadius: 30,
-    elevation: 4,
+    borderRadius: 25,
+    elevation: 3,
+    paddingVertical: 12,
+    paddingHorizontal: 18,
+    justifyContent: 'center',
     shadowColor: '#8f5cff',
     shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
+    shadowOpacity: 0.18,
     shadowRadius: 8,
-    borderWidth: 0,
   },
-  loginBtnText: {
+  socialBtnText: {
     color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
+    letterSpacing: 1,
     fontFamily: Platform.OS === 'ios' ? 'AvenirNext-Bold' : 'sans-serif-medium',
-    textTransform: 'uppercase',
-    letterSpacing: 2,
+    marginLeft: 8,
   },
-  signupBtn: {
+  socialBtnOutline: {
     backgroundColor: '#fff',
     borderWidth: 2,
     borderColor: '#8f5cff',
-    width: 220,
-    borderRadius: 30,
     elevation: 2,
-    marginBottom: 12,
-    shadowColor: '#8f5cff',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.15,
-    shadowRadius: 6,
+    shadowOpacity: 0.08,
   },
-  signupBtnText: {
+  socialBtnOutlineText: {
     color: '#8f5cff',
-    fontSize: 18,
-    fontWeight: 'bold',
-    fontFamily: Platform.OS === 'ios' ? 'AvenirNext-Bold' : 'sans-serif-medium',
-    textTransform: 'uppercase',
-    letterSpacing: 2,
   },
   forgotBtn: {
     backgroundColor: 'transparent',
@@ -190,6 +187,9 @@ const styles = StyleSheet.create({
     elevation: 0,
     marginBottom: 0,
     marginTop: 4,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   forgotBtnText: {
     color: '#3bb2b8',
@@ -199,6 +199,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     textDecorationLine: 'underline',
     letterSpacing: 1,
+    marginLeft: 8,
   },
 });
 

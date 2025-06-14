@@ -4,6 +4,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../App'; 
 import AppButton from '../components/AppButton';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Feather } from '@expo/vector-icons'; // Add icon import
 
 type Props = NativeStackScreenProps<RootStackParamList, 'WelcomeScreen'>;
 
@@ -23,14 +24,16 @@ const WelcomeScreen: React.FC<Props> = ({ navigation }) => {
         <AppButton 
           title="Login" 
           onPress={() => navigation.navigate('Login')} 
-          style={styles.loginBtn}
-          textStyle={styles.loginBtnText}
+          style={styles.socialBtn}
+          textStyle={styles.socialBtnText}
+          iconLeft={<Feather name="log-in" size={20} color="#fff" />}
         />
         <AppButton 
           title="Sign Up" 
           onPress={() => navigation.navigate('Signup')} 
-          style={styles.signupBtn}
-          textStyle={styles.signupBtnText}
+          style={[styles.socialBtn, styles.socialBtnOutline]}
+          textStyle={[styles.socialBtnText, styles.socialBtnOutlineText]}
+          iconLeft={<Feather name="user-plus" size={20} color="#8f5cff" />}
         />
       </View>
     </LinearGradient>
@@ -71,34 +74,39 @@ const styles = StyleSheet.create({
     fontFamily: 'sans-serif-medium',
     letterSpacing: 1,
   },
-  loginBtn: {
+  socialBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
     backgroundColor: '#8f5cff',
     width: 220,
     marginBottom: 16,
-    borderRadius: 30,
-    elevation: 2,
+    borderRadius: 25,
+    elevation: 3,
+    paddingVertical: 12,
+    paddingHorizontal: 18,
+    justifyContent: 'center',
+    shadowColor: '#8f5cff',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.18,
+    shadowRadius: 8,
   },
-  loginBtnText: {
+  socialBtnText: {
     color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
     letterSpacing: 1,
     fontFamily: 'sans-serif-medium',
+    marginLeft: 8,
   },
-  signupBtn: {
+  socialBtnOutline: {
     backgroundColor: '#fff',
     borderWidth: 2,
     borderColor: '#8f5cff',
-    width: 220,
-    borderRadius: 30,
     elevation: 2,
+    shadowOpacity: 0.08,
   },
-  signupBtnText: {
+  socialBtnOutlineText: {
     color: '#8f5cff',
-    fontSize: 18,
-    fontWeight: 'bold',
-    letterSpacing: 1,
-    fontFamily: 'sans-serif-medium',
   },
 });
 
